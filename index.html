@@ -154,13 +154,15 @@
 				};
 
 				// Send email using EmailJS
-				emailjs.send('service_4276p87', 'template_f9cnf68', data) // use service ID and template ID
+				if (data.email && data.message) {
+					emailjs.send('service_4276p87', 'template_f9cnf68', data) // use service ID and template ID
 						.then(function(response) {
 								console.log('SUCCESS!', response.status, response.text);
 								event.target.reset();
 						}, function(error) {
 								console.log('FAILED...', error);
 						});
+				}
 		});
 </script>
 
